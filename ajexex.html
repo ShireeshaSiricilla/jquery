@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="display"></p>
+    <p id="display1"></p>
+    <p id="display2"></p>
+    <button type="button" onclick="loaddoc()">change content</button>
+    <script>
+        function loaddoc(){
+            var xhttp=new XMLHttpRequest();
+            xhttp.onreadystatechange=function(){
+                if( this.status==200){
+                    document.getElementById("display").innerHTML=this.responseText;
+                    document.getElementById("display1").innerHTML=this.responseURL;
+                    document.getElementById("display2").innerHTML=this.response;
+                } 
+
+            };
+            xhttp.open("GET", "ajax.txt",true);
+            xhttp.send();
+        }
+    </script>
+    
+</body>
+</html>
